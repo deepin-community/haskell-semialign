@@ -1,15 +1,95 @@
-Source: template-repository
-Section: unknown
+Source: haskell-semialign
+Maintainer: Debian Haskell Group <pkg-haskell-maintainers@lists.alioth.debian.org>
+Uploaders: Ilias Tsitsimpis <iliastsi@debian.org>
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Section: haskell
+Rules-Requires-Root: no
+Build-Depends: debhelper (>= 10),
+ haskell-devscripts (>= 0.16),
+ cdbs,
+ ghc,
+ ghc-prof,
+ libghc-hashable-dev (>= 1.2.7.0),
+ libghc-hashable-dev (<< 1.5),
+ libghc-hashable-prof,
+ libghc-indexed-traversable-dev (>= 0.1.1),
+ libghc-indexed-traversable-dev (<< 0.2),
+ libghc-indexed-traversable-prof,
+ libghc-indexed-traversable-instances-dev (>= 0.1),
+ libghc-indexed-traversable-instances-dev (<< 0.2),
+ libghc-indexed-traversable-instances-prof,
+ libghc-semigroupoids-dev (>= 5.3.2),
+ libghc-semigroupoids-dev (<< 5.4),
+ libghc-semigroupoids-prof,
+ libghc-tagged-dev (>= 0.8.6),
+ libghc-tagged-dev (<< 0.9),
+ libghc-tagged-prof,
+ libghc-these-dev (>= 1.1.1.1),
+ libghc-these-dev (<< 1.2),
+ libghc-these-prof,
+ libghc-unordered-containers-dev (>= 0.2.8.0),
+ libghc-unordered-containers-dev (<< 0.3),
+ libghc-unordered-containers-prof,
+ libghc-vector-dev (>= 0.12.0.2),
+ libghc-vector-dev (<< 0.13),
+ libghc-vector-prof,
+Build-Depends-Indep: ghc-doc,
+ libghc-hashable-doc,
+ libghc-indexed-traversable-doc,
+ libghc-indexed-traversable-instances-doc,
+ libghc-semigroupoids-doc,
+ libghc-tagged-doc,
+ libghc-these-doc,
+ libghc-unordered-containers-doc,
+ libghc-vector-doc,
+Standards-Version: 4.6.1
+Homepage: https://github.com/haskellari/these
+Vcs-Browser: https://salsa.debian.org/haskell-team/DHG_packages/tree/master/p/haskell-semialign
+Vcs-Git: https://salsa.debian.org/haskell-team/DHG_packages.git [p/haskell-semialign]
+X-Description: Align and Zip type-classes from the common Semialign ancestor
+ This Haskell library implements the 'Semialign' class, which represents a
+ generalized notion of "zipping with padding" that combines structures without
+ truncating to the size of the smaller input.
+ .
+ It turns out that the 'zip' operation fits well the 'Semialign' class,
+ forming a lattice-like structure.
 
-Package: template-repository
+Package: libghc-semialign-dev
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: ${haskell:Depends},
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends: ${haskell:Recommends},
+Suggests: ${haskell:Suggests},
+Conflicts: ${haskell:Conflicts},
+Provides: ${haskell:Provides},
+Description: ${haskell:ShortDescription}${haskell:ShortBlurb}
+ ${haskell:LongDescription}
+ .
+ ${haskell:Blurb}
+
+Package: libghc-semialign-prof
+Architecture: any
+Depends: ${haskell:Depends},
+ ${misc:Depends},
+Recommends: ${haskell:Recommends},
+Suggests: ${haskell:Suggests},
+Conflicts: ${haskell:Conflicts},
+Provides: ${haskell:Provides},
+Description: ${haskell:ShortDescription}${haskell:ShortBlurb}
+ ${haskell:LongDescription}
+ .
+ ${haskell:Blurb}
+
+Package: libghc-semialign-doc
+Architecture: all
+Section: doc
+Depends: ${haskell:Depends},
+ ${misc:Depends},
+Recommends: ${haskell:Recommends},
+Suggests: ${haskell:Suggests},
+Conflicts: ${haskell:Conflicts},
+Description: ${haskell:ShortDescription}${haskell:ShortBlurb}
+ ${haskell:LongDescription}
+ .
+ ${haskell:Blurb}
